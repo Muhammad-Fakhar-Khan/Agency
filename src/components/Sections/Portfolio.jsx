@@ -16,10 +16,10 @@ const projects = [
         link: "https://github.com/Muhammad-Fakhar-Khan/Portfolio-2"
     },
     {
-        title: "ShopKeeper",
-        category: "E-Commerce Solution",
-        image: "https://images.unsplash.com/photo-1472851294608-415522f9631f?auto=format&fit=crop&q=80&w=800", // Shopping Bags / Retail
-        link: "https://github.com/Muhammad-Fakhar-Khan/shopkeeper"
+        title: "My App",
+        category: "React Application",
+        image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800", // Code / Development
+        link: "https://github.com/Muhammad-Fakhar-Khan/my-app"
     },
     {
         title: "Agency",
