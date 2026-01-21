@@ -18,7 +18,7 @@ const projects = [
     {
         title: "ShopKeeper",
         category: "E-Commerce Solution",
-        image: "https://images.unsplash.com/photo-1556742049-09329e2e2a6c?auto=format&fit=crop&q=80&w=800", // E-commerce
+        image: "https://images.unsplash.com/photo-1472851294608-415522f9631f?auto=format&fit=crop&q=80&w=800", // Shopping Bags / Retail
         link: "https://github.com/Muhammad-Fakhar-Khan/shopkeeper"
     },
     {
