@@ -24,14 +24,32 @@ const Team = () => {
 const Contact = () => {
     const [status, setStatus] = useState('idle'); // idle, loading, success
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('loading');
-        setTimeout(() => {
-            setStatus('success');
-            // Reset after 3 seconds
-            setTimeout(() => setStatus('idle'), 3000);
-        }, 1500);
+
+        const formData = new FormData(e.target);
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/fakhakhan3312@gmail.com", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                e.target.reset();
+                setTimeout(() => setStatus('idle'), 3000);
+            } else {
+                console.error("Submission failed");
+                setStatus('idle');
+                alert("Something went wrong with the form submission. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            setStatus('idle');
+            alert("Connection error. Please check your internet connection.");
+        }
     };
 
     return (
@@ -46,19 +64,20 @@ const Contact = () => {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
+                        <input type="hidden" name="_captcha" value="false" />
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
-                                <input type="text" required className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-transparent focus:border-primary focus:bg-white dark:focus:bg-gray-900 focus:ring-0 transition-colors" placeholder="John Doe" />
+                                <input type="text" name="name" required className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-transparent focus:border-primary focus:bg-white dark:focus:bg-gray-900 focus:ring-0 transition-colors" placeholder="John Doe" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                                <input type="email" required className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-transparent focus:border-primary focus:bg-white dark:focus:bg-gray-900 focus:ring-0 transition-colors" placeholder="john@example.com" />
+                                <input type="email" name="email" required className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-transparent focus:border-primary focus:bg-white dark:focus:bg-gray-900 focus:ring-0 transition-colors" placeholder="john@example.com" />
                             </div>
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                            <textarea rows="4" required className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-transparent focus:border-primary focus:bg-white dark:focus:bg-gray-900 focus:ring-0 transition-colors" placeholder="Tell us about your project..."></textarea>
+                            <textarea rows="4" name="message" required className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800 border-transparent focus:border-primary focus:bg-white dark:focus:bg-gray-900 focus:ring-0 transition-colors" placeholder="Tell us about your project..."></textarea>
                         </div>
 
                         <div className="text-center">
