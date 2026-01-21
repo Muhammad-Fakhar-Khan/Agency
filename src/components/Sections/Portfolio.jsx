@@ -4,24 +4,28 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
     {
-        title: "Fintech Dashboard",
-        category: "Web Application",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+        title: "Next.js Portfolio",
+        category: "Personal Portfolio",
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800", // Coding/Laptop
+        link: "https://github.com/Muhammad-Fakhar-Khan/Portfolio-NextJs"
     },
     {
-        title: "E-Commerce Platform",
-        category: "Online Store",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+        title: "Portfolio V2",
+        category: "Creative Showcase",
+        image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&q=80&w=800", // Creative/Art
+        link: "https://github.com/Muhammad-Fakhar-Khan/Portfolio-2"
     },
     {
-        title: "AI Startup Landing",
-        category: "Marketing Site",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+        title: "ShopKeeper",
+        category: "E-Commerce Solution",
+        image: "https://images.unsplash.com/photo-1556742049-09329e2e2a6c?auto=format&fit=crop&q=80&w=800", // E-commerce
+        link: "https://github.com/Muhammad-Fakhar-Khan/shopkeeper"
     },
     {
-        title: "Health Tracker App",
-        category: "Mobile App",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+        title: "Agency",
+        category: "Digital Agency Site",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800", // Team/Collaboration
+        link: "https://github.com/Muhammad-Fakhar-Khan/Agency"
     }
 ];
 
@@ -63,12 +67,22 @@ const Portfolio = () => {
                                 <h3 className="text-2xl font-bold text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{project.title}</h3>
                                 <p className="text-gray-300 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{project.category}</p>
                                 <div className="mt-4 flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
-                                    <button className="p-2 bg-white/20 hover:bg-white/30 rounded-full text-white backdrop-blur-sm transition-colors">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-2 bg-white/20 hover:bg-white/30 rounded-full text-white backdrop-blur-sm transition-colors"
+                                    >
                                         <ExternalLink size={20} />
-                                    </button>
-                                    <button className="p-2 bg-white/20 hover:bg-white/30 rounded-full text-white backdrop-blur-sm transition-colors">
+                                    </a>
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-2 bg-white/20 hover:bg-white/30 rounded-full text-white backdrop-blur-sm transition-colors"
+                                    >
                                         <Github size={20} />
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </motion.div>
